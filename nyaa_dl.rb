@@ -48,7 +48,7 @@ def search_rss(search_strings)
       time1 = Time.new
       if found == search_strings.length
         download_torrent(item.link, item.title)
-        f = File.open('Documents/myh1000/animu/nyaa_dl/nyaa.txt', 'a')
+        f = File.open('nyaa.txt', 'a')
 
         old_out = $stdout
         $stdout = f

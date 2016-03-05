@@ -1,6 +1,7 @@
 # Nyaa downloader
 
 i stole this from somewhere
+
 this script search the rss feeds of nyaa.se using a file passed in parameter and download the torrents files to a specified directory. Useful to auto add new anime episode to a torrent client.
 
 ## How to use
