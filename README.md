@@ -1,7 +1,5 @@
 # Nyaa downloader
 
-i stole this from somewhere
-
 this script search the rss feeds of nyaa.se using a file passed in parameter and download the torrents files to a specified directory. Useful to auto add new anime episode to a torrent client.
 
 ## How to use
@@ -21,9 +19,9 @@ You should probably put it in a cronjob or something so it would run a couple of
 
 like
 
-```0 15 * * * ruby ~/ur directory/nyaa_dl.rb ~/ur directory/anime.txt ~/anotha one/animu/```
+```0 15 * * * ruby /path/nyaa_dl.rb /path/anime.txt ~/path/animu/```
 
 ## Notes
-nyaa_dl search only for the last ≈100 torrents added to nyaa.se so this script is only useful for getting new episodes of ongoing animes.
+nyaa_dl searches starting from the most recent torrents added to nyaa.se so this script is only useful for getting new episodes of ongoing animes.
 
 Logs are in nyaa.txt.
