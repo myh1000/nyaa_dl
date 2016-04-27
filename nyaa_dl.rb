@@ -5,19 +5,36 @@ require 'open-uri'
 require 'net/http'
 
 # Argument verification
-if ARGV.length != 2
-  puts "Usage: #{$0} file.txt /directory/to/dump/torrents"
+unless ARGV.length == 2 || ARGV.length == 3
+  puts "Usage: #{$0} file.txt /directory/to/dump/torrents optional:#pagestosearch"
   puts "file example:"
   puts "anime name 1;1080;HorribleSubs"
   puts "anime name 2;720;HorribleSubs"
   exit 1
 end
 
+$logfile = 'Documents/myh1000/ruby/animu/nyaa_dl/nyaa.txt'
+time1 = Time.new
+f = File.open($logfile, 'a')
+
+old_out = $stdout
+$stdout = f
+
+if ARGV.length == 2
+  puts "searched " + time1.inspect
+else
+  puts "searched " + time1.inspect + "   " + ARGV[2]
+end
+
+f.close
+
+$stdout = old_out
+
 def main()
   #reading the file passed in parameter
   file = ARGV[0]
   if ! File.exist?("#{file}")
-    puts "#{file} do not exist..."
+    puts "#{file} does not exist..."
     exit 1
   end
   file = File.new("#{file}", "r")
@@ -31,34 +48,38 @@ def main()
 end
 
 def search_rss(search_strings)
-  nyaa_rss_url = "http://www.nyaa.se/?page=rss"
-
-  open(nyaa_rss_url) do |rss|
-    feed = RSS::Parser.parse(rss)
-    feed.items.each do |item|
-      # Searching the item for every search_strings
-      found = 0
-      search_strings.each do |search_string|
-        if item.title.match(/(#{search_string})/)
-          found = found + 1
+  if ARGV.length == 2
+    offset = 1
+  else
+    offset = ARGV[2].to_i
+  end
+  for i in 1..offset
+    nyaa_rss_url = "http://www.nyaa.se/?page=rss&cats=1_37&offset=#{i}"
+    open(nyaa_rss_url) do |rss|
+      feed = RSS::Parser.parse(rss)
+      feed.items.each do |item|
+        # Searching the item for every search_strings
+        found = 0
+        search_strings.each do |search_string|
+          if item.title.match(/(#{search_string})/)
+            found = found + 1
+          end
         end
-      end
 
-      # If we found every search terms download the torrent
-      time1 = Time.new
-      if found == search_strings.length
-        download_torrent(item.link, item.title)
-        f = File.open('nyaa.txt', 'a')
+        # If we found every search terms download the torrent
+        if found == search_strings.length
+          download_torrent(item.link, item.title)
 
-        old_out = $stdout
-        $stdout = f
+          time1 = Time.new
+          f = File.open($logfile, 'a')
+          old_out = $stdout
+          $stdout = f
+          puts "#{item.title}    " + time1.inspect
+          f.close
+          $stdout = old_out
 
-        puts "#{item.title}    " + time1.inspect
-
-        f.close
-
-        $stdout = old_out
-        puts "Downloading #{item.title}."
+          puts "Downloading #{item.title}."
+        end
       end
     end
   end
