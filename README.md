@@ -9,7 +9,7 @@ Every line of the file will looks something like this:
 
 ```my anime name;720p;HorribleSubs```
 
-This line for example would search for every rss item and download the torrent file when the item contains "my anime name" , "720p" AND "HorribleSubs". You can have as many line as you want in the file. There is also no limit to how much search terms you can put by line.
+This line for example would search for every rss item and download the torrent file when the item contains "my anime name", "720p" AND "HorribleSubs". You can have as many line as you want in the file. There is also no limit to how much search terms you can put by line.
 
 Once your file is written you can launch the script with:
 
