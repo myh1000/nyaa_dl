@@ -6,14 +6,14 @@ require 'net/http'
 
 # Argument verification
 unless ARGV.length == 2 || ARGV.length == 3
-  puts "Usage: #{$0} file.txt /directory/to/dump/torrents optional:#pagestosearch"
+  puts "Usage: #{$0} file.txt /directory/to/dump/torrents optional:pagestosearch"
   puts "file example:"
   puts "anime name 1;1080;HorribleSubs"
   puts "anime name 2;720;HorribleSubs"
   exit 1
 end
 
-$logfile = 'Documents/myh1000/ruby/animu/nyaa_dl/nyaa.txt'
+$logfile = File.dirname(ARGV[0]) + '/nyaa.txt'
 time1 = Time.new
 f = File.open($logfile, 'a')
 
