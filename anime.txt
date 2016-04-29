@@ -1,1 +1,25 @@
-GATE;1080p;HorribleSubs
+Big Order;1080p;HorribleSubs
+Onigiri;720p;BudLightSubs
+Onigiri;720p;HorribleSubs
+Kuromukuro;720p;DeadFish
+Ragnastrike;720p;mobamap
+Gakusen;1080p;HorribleSubs
+Bakuon!!;1080p;HorribleSubs
+Wagamama;720p;HorribleSubs
+Cerberus;1080p;HorribleSubs
+Ace;1080p;HorribleSubs
+Tanaka-kun;1080p;HorribleSubs
+Haifuri;1080p;HorribleSubs
+Hundred;1080p;HorribleSubs
+Kabaneri;720p;HorribleSubs
+Kabaneri;1080p;DameDesuYo
+Bungou;1080p;HorribleSubs
+Kiznaiver;1080p;HorribleSubs
+Onmyouji;1080p;HorribleSubs
+Joker Game;1080p;HorribleSubs
+Mayoiga;1080p;HorribleSubs
+Zero;1080p;DameDesuYo
+Boku;1080p;HorribleSubs
+Zero;720p;HorribleSubs
+Netoge;1080p;HorribleSubs
+Flying;1080p;HorribleSubs

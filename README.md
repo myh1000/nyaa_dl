@@ -24,4 +24,8 @@ like
 ## Notes
 nyaa_dl searches starting from the most recent torrents added to nyaa.se so this script is only useful for getting new episodes of ongoing animes.
 
+You can search farther back into nyaa.se by specifying how many pages you want to search
+
+```./nyaa_dl.rb file.txt /directory #ofpages```
+
 Logs are in nyaa.txt.
